@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { PortalProvider } from './context/PortalContext.jsx'
 import { usePortal } from './context/usePortal.js'
 import PortalLayout from './components/PortalLayout'
@@ -55,11 +55,9 @@ function AppRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <PortalProvider>
-        <AppRoutes />
-      </PortalProvider>
-    </BrowserRouter>
+    <PortalProvider>
+      <AppRoutes />
+    </PortalProvider>
   )
 }
 
