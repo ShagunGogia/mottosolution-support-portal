@@ -32,7 +32,7 @@ export default function Register() {
         <Link className="back-link" to="/login"><ArrowLeft size={15} /> Back to sign in</Link>
         <div className="auth-eyebrow"><span className="eyebrow-line" /> CUSTOMER SUPPORT <span className="eyebrow-line" /></div>
         <h1>Create your account</h1>
-        <p className="auth-intro">Get access to your AGRSoft support workspace.</p>
+        <p className="auth-intro">Get access to your Motto Solution support workspace.</p>
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-grid two-col">
             <div className="form-field"><label htmlFor="name">Full name <b>*</b></label><input id="name" name="name" value={values.name} onChange={update} placeholder="e.g. Alex Morgan" required autoComplete="name" /></div>
@@ -47,9 +47,9 @@ export default function Register() {
           <button className="button button-primary auth-submit" type="submit">Create account <ArrowRight size={17} /></button>
         </form>
         <p className="login-prompt">Already have an account? <Link to="/login">Sign in</Link></p>
-        <div className="demo-notice"><span>Account creation is simulated for this frontend demo.</span></div>
+        
       </section>
-      <p className="auth-footnote">© 2026 AGRSoft Solutions Pvt. Ltd.</p>
+      <p className="auth-footnote">© 2026 Motto Solutions</p>
     </main>
   )
 }

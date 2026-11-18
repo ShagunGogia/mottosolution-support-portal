@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { ArrowRight, LockKeyhole, Mail, ShieldCheck } from 'lucide-react'
+import { ArrowRight, LockKeyhole, Mail } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import Brand from '../components/Brand'
 import { usePortal } from '../context/usePortal.js'
-import { DEMO_ADMIN_EMAIL, DEMO_ADMIN_PASSWORD } from '../data/mockUsers'
 
 export default function Login() {
   const { login } = usePortal()
@@ -41,7 +40,6 @@ export default function Login() {
         </form>
         <div className="auth-divider"><span>New to Motto Solution support?</span></div>
         <Link className="button button-secondary auth-register" to="/register">Create an account</Link>
-        <div className="demo-credentials"><ShieldCheck size={16} /><div><strong>Demo admin · password: {DEMO_ADMIN_PASSWORD}</strong><span>Admin: {DEMO_ADMIN_EMAIL}</span><span>Use any valid email and password for Customer access.</span></div></div>
       </section>
       <p className="auth-footnote">Secure customer support, powered by Motto Solution.</p>
     </main>
