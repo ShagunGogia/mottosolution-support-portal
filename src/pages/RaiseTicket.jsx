@@ -87,7 +87,7 @@ export default function RaiseTicket() {
         {error && <p className="form-error" role="alert">{error}</p>}
         <div className="form-actions"><span>Your information is only used to support your request.</span><button type="submit" className="button button-primary"><Send size={16} /> Submit ticket</button></div>
       </form>
-      <div className="form-footer-note"><span className="secure-dot" /> Your request will be reviewed by the Motto Solution D365 F&amp;O support team. <ArrowRight size={14} /></div>
+      <div className="form-footer-note"><span className="secure-dot" /> Your request will be reviewed by our D365 F&amp;O support team. <ArrowRight size={14} /></div>
     </div>
   )
 }

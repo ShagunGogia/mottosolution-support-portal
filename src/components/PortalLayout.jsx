@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Bell, ChevronDown, CircleHelp, LayoutDashboard, LogOut, Menu, Plus, Ticket, Users, UserRound, X } from 'lucide-react'
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { usePortal } from '../context/usePortal.js'
-import Brand from './Brand'
 
 function Sidebar({ close }) {
   const { user } = usePortal()
@@ -22,9 +21,9 @@ function Sidebar({ close }) {
     ]
   return (
     <aside className="sidebar">
-      <div className="sidebar-brand"><Brand /><button className="icon-button mobile-close" onClick={close} aria-label="Close navigation"><X size={19} /></button></div>
+      <div className="sidebar-brand"><strong>Support workspace</strong><button className="icon-button mobile-close" onClick={close} aria-label="Close navigation"><X size={19} /></button></div>
       <div className="nav-caption">WORKSPACE</div>
-      <nav className="side-nav">
+      <nav className="side-nav" aria-label="Workspace navigation">
         {navigation.map(({ to, label, icon: Icon }) => (
           <NavLink key={to} to={to} onClick={close} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
             <Icon size={18} strokeWidth={1.8} /><span>{label}</span>
@@ -36,7 +35,6 @@ function Sidebar({ close }) {
       </nav>
       <div className="sidebar-bottom">
         <div className="help-card"><span className="help-icon"><CircleHelp size={17} /></span><strong>Need a hand?</strong><p>Our support team is ready to help.</p><a href="mailto:support@mottosolution.com">Contact support <span>↗</span></a></div>
-        <div className="sidebar-foot">© 2026 Motto Solution</div>
       </div>
     </aside>
   )
@@ -64,16 +62,17 @@ export default function PortalLayout() {
   }
 
   return (
-    <div className="portal-shell">
-      {mobileOpen && <button className="sidebar-scrim" onClick={() => setMobileOpen(false)} aria-label="Close navigation" />}
-      <div className={`sidebar-wrap${mobileOpen ? ' sidebar-wrap-open' : ''}`}><Sidebar close={() => setMobileOpen(false)} /></div>
-      <div className="portal-main">
-        <header className="topbar">
-          <div className="topbar-left"><button className="icon-button mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Open navigation"><Menu size={20} /></button><span className="topbar-title">{pageTitle}</span></div>
-          <div className="topbar-actions"><span className="topbar-help">{user?.role} portal · <a href="mailto:support@mottosolution.com">Contact support</a></span><button className="icon-button notification-button" aria-label="Notifications"><Bell size={18} /><i /></button><span className="topbar-divider" /><span className="user-menu"><span className="avatar">{initials}</span><span className="user-name">{user?.name}</span><ChevronDown size={15} /></span><button className="signout-button" onClick={handleLogout}><LogOut size={16} /><span>Sign out</span></button></div>
-        </header>
-        <main className="page-content"><Outlet /></main>
-        <footer className="portal-footer"><span>© 2026 Motto Solution Pvt. Ltd.</span><span>Microsoft Dynamics 365 Finance & Operations Support</span></footer>
+    <div className="portal-shell" style={{ '--header-height': '0px' }}>
+      <div className="portal-workspace">
+        {mobileOpen && <button className="sidebar-scrim" onClick={() => setMobileOpen(false)} aria-label="Close workspace navigation" />}
+        <div className={`sidebar-wrap${mobileOpen ? ' sidebar-wrap-open' : ''}`}><Sidebar close={() => setMobileOpen(false)} /></div>
+        <div className="portal-main">
+          <header className="topbar">
+            <div className="topbar-left"><button className="icon-button mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Open workspace navigation"><Menu size={20} /></button><span className="topbar-title">{pageTitle}</span></div>
+            <div className="topbar-actions"><span className="topbar-help">{user?.role} portal · <a href="mailto:support@mottosolution.com">Contact support</a></span><button className="icon-button notification-button" aria-label="Notifications"><Bell size={18} /><i /></button><span className="topbar-divider" /><span className="user-menu"><span className="avatar">{initials}</span><span className="user-name">{user?.name}</span><ChevronDown size={15} /></span><button className="signout-button" onClick={handleLogout} aria-label="Sign out"><LogOut size={16} /><span>Sign out</span></button></div>
+          </header>
+          <main className="page-content"><Outlet /></main>
+        </div>
       </div>
     </div>
   )

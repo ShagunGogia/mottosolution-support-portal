@@ -1,35 +1,112 @@
+@font-face {
+  font-family: 'Motto Open Sans';
+  src: url('./assets/open-sans-regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Motto Open Sans';
+  src: url('./assets/open-sans-semibold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Motto Open Sans';
+  src: url('./assets/open-sans-bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Motto Poppins';
+  src: url('./assets/poppins-bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  color: #23344b;
-  background: #f5f7fa;
+  --color-brand-primary: #6878d6;
+  --color-brand-secondary: #4d61d6;
+  --color-brand-deep: #242a56;
+  --color-brand-text: #393a56;
+  --color-brand-soft: #eff2ff;
+  --color-brand-highlight: #bfd1ff;
+  --color-brand-accent: #38bdf8;
+  --color-surface: #fff;
+  --color-canvas: #f8fafc;
+  --color-border: #e4e7f2;
+  --color-muted: #737b90;
+  --color-success: #2f806e;
+  --color-warning: #a97931;
+  --color-danger: #b94a48;
+  --font-body: 'Motto Open Sans', 'Open Sans', Arial, sans-serif;
+  --font-heading: 'Motto Poppins', Poppins, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+  --shadow-card: 0 3px 14px rgba(36, 42, 86, 0.07);
+  --shadow-elevated: 0 12px 32px rgba(36, 42, 86, 0.12);
+  --container-width: 1240px;
+  --content-width: 1100px;
+  --sidebar-width: 254px;
+  --header-height: 70px;
+  --button-background: var(--color-brand-primary);
+  --button-hover: var(--color-brand-secondary);
+  --button-text: #fff;
+  --button-radius: var(--radius-md);
+  --button-padding: 0.75rem 1.5rem;
+
+  --navy: var(--color-brand-deep);
+  --blue: var(--color-brand-primary);
+  --blue-dark: var(--color-brand-secondary);
+  --blue-light: var(--color-brand-soft);
+  --brand-cyan: var(--color-brand-accent);
+  --brand-cobalt: var(--color-brand-secondary);
+  --text: var(--color-brand-text);
+  --muted: var(--color-muted);
+  --border: var(--color-border);
+  --surface: var(--color-surface);
+  --canvas: var(--color-canvas);
+  --green: var(--color-success);
+  --shadow: var(--shadow-card);
+
+  font-family: var(--font-body);
+  color: var(--color-brand-text);
+  background: var(--color-canvas);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-optical-sizing: auto;
   font-weight: 400;
-  --font-heading: 'Segoe UI', Arial, sans-serif;
-  --navy: #102b4e;
-  --blue: #0756bd;
-  --blue-dark: #064596;
-  --blue-light: #edf5fb;
-  --brand-cyan: #08bfce;
-  --brand-cobalt: #0756bd;
-  --text: #23344b;
-  --muted: #77869a;
-  --border: #e6ebf0;
-  --surface: #ffffff;
-  --canvas: #f5f7fa;
-  --green: #238567;
-  --shadow: 0 2px 8px rgba(24, 49, 77, 0.035), 0 12px 30px rgba(24, 49, 77, 0.025);
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; min-height: 100vh; }
+html { min-width: 320px; background: var(--color-canvas); }
+body { margin: 0; min-width: 320px; min-height: 100vh; font-size: var(--font-size-base); }
 button, input, select, textarea { font: inherit; }
 button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 a { color: inherit; }
 #root { min-height: 100vh; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-::selection { color: #103459; background: #d7eafb; }
+::selection { color: var(--color-brand-deep); background: var(--color-brand-highlight); }

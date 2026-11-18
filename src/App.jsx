@@ -15,6 +15,7 @@ import CustomerProfile from './pages/CustomerProfile'
 import { isAdminUser } from './data/mockUsers'
 import './styles/components.css'
 import './styles/pages.css'
+import './styles/brand-theme.css'
 
 function ProtectedLayout({ roles }) {
   const { user } = usePortal()
